@@ -1,0 +1,17 @@
+body{
+background-color: rgba(5, 164, 238, 0.699);}
+.container{
+    height: 100vh;
+}
+.w-form{
+    width: 40%;
+}
+#btnrg{
+    display: flex;
+    justify-content: center;
+}
+#logo{
+    height: 30%;  
+    width: 50%;
+    
+}
