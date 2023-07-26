@@ -1,0 +1,83 @@
+.sidebar {
+    background-color: #3498db;
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 20px;
+    height: 800px;
+    width: 400px;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sidebar li {
+    margin-bottom: 10px;
+    border-radius: 3px; /* Esquinas redondeadas */
+  }
+
+  .sidebar a {
+    color: rgb(221, 215, 215);
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 30px; /* Tamaño de fuente ajustable */
+  }
+
+  .sidebar a:hover {
+    background-color: rgb(210, 226, 64);
+  }
+
+  .sidebar a i {
+    margin-right: 10px;
+  }
+  .nav-item .list-unstyled li a.active {
+    background-color: rgb(210, 226, 64);
+  }
+
+
+  .sidebar .collapse-content {
+    margin-left: 20px;
+  }
+
+  .sidebar .collapse-content ul {
+    padding-left: 10px;
+  }
+
+  .sidebar .collapse-content ul li {
+    margin-bottom: 5px;
+  }
+
+  .main-content {
+    margin-left: 250px;
+    padding: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      position: relative;
+      margin-bottom: 20px;
+      height: auto;
+      position: static;
+    }
+
+    .main-content {
+      margin-left: 0;
+    }
+
+  }
+  .welcome-message {
+    font-size: 45px;
+    font-weight: bold;
+    color: #ce1e1e;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .hand-emoji {
+    font-size: 48px;
+    margin-top: 20px;
+    text-align: center;
+  }

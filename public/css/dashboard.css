@@ -1,0 +1,143 @@
+body {
+    width: auto;
+    height: auto;
+  }
+
+  .logo {
+    width: 70%;
+    height: 90px;
+    border-radius: 50%;
+    padding: 0ex;
+    overflow: hidden;
+  }
+
+  .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: circle(50% at center);
+  }
+
+  .navbar-brand a {
+    display: block;
+    color: white;
+    background-color: aquamarine;
+  }
+
+  #navbar {
+    width: 100%;
+    height: 110px;
+  }
+
+  .nav-item {
+    align-items: center;
+    display: block;
+    align-content: center;
+  }
+
+  .nav-item li a:hover {
+    display: block;
+    background-color: #CDDC39;
+  }
+
+  a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 18px;
+  }
+
+  .col {
+    text-align: justify;
+    background-color: white;
+    width: 700px;
+    height: 400px;
+  }
+
+  .col2 {
+    width: 700px;
+    height: 400px;
+    padding: 0;
+  }
+
+  .i1 {
+    align-content: center;
+  }
+
+  h1 {
+    color: rgb(189, 8, 174);
+  }
+
+  header {
+    font-family: Helvetica;
+    width: 480px;
+    margin: 0 auto;
+  }
+
+  ul {
+    list-style: none;
+  }
+  #menu li > a {
+    background-color: rgb(255, 249, 249);
+    color: rgba(0, 0, 0, 0.486);
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    min-width: 100px;
+    border-radius: 5px;
+}
+
+#menu li > a:hover {
+    color: #000;
+    background-color: #eaeaea;
+}
+
+#menu > li {
+    float: right;
+    text-align: center;
+}
+
+#menu > li > ul {
+    display: none;
+}
+
+#menu > li:hover > ul {
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+    }
+
+    .profile-picture-container {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    #menu {
+        margin: 5px; /* Agrega esta línea para quitar la sangría */
+        list-style-type: none;
+        padding: 0;
+    }
+
+    #menu > li {
+        float: none;
+    }
+
+    #menu li > ul {
+        position: fixed;
+        top: initial;
+        left: initial;
+        z-index: 1;
+        background-color: #fff;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    #menu li > ul > li {
+        text-align: center;
+    }
+}

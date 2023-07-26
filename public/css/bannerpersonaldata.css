@@ -1,0 +1,23 @@
+.form-horizontal .form-group {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  .form-label-bold {
+    font-weight: bold;
+  }
+
+  @media (min-width: 576px) {
+    .form-horizontal .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      margin-right: -7.5px;
+      margin-left: -7.5px;
+    }
+
+    .form-horizontal .form-group .col-md-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+      padding-right: 7.5px;
+      padding-left: 7.5px;
+    }
+  }
