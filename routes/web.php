@@ -80,3 +80,4 @@ Route::post('/solicitud/{idrequest}/{fk_userr}', 'App\Http\Controllers\Request\R
 Route::delete('/request.deleterequest/{idrequest}/{fk_userr}', 'App\Http\Controllers\Request\ReadRequestController@deleteRequest')->name('request.deleterequest');
 //PDF
 Route::get('/generate-pdf/{idrequest}', [App\Http\Controllers\PDF\PDFController::class, 'generatePDF'])->name('generate.pdf');
+Route::get('/generate-and-send-pdf/{idrequest}', [App\Http\Controllers\PDF\PDFController::class, 'sendpdf'])->name('send.email');

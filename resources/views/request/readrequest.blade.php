@@ -143,9 +143,9 @@
                                     <a href="{{ route('generate.pdf', ['idrequest' => $solicitud->idrequest]) }}" class="btn btn-secondary" target="_blank" title="Generar PDF">
                                         <img src="img/iconos/pdf.png" alt="Imagen" width="50" height="50">
                                     <a>
-                                        <a href="#" class="btn btn-dark" target="_blank" title="En">
+                                        <a href="{{ route('send.email', ['idrequest' => $solicitud->idrequest]) }}" class="btn btn-dark" target="_blank" title="Envío vía Email">
                                             <img src="img/iconos/sendemail.png" alt="Imagen" width="50" height="50">
-                                        <a>
+                                        </a>
                                 </td>
                             </tr>
                         @endforeach
