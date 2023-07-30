@@ -13,35 +13,46 @@ class ResetPasswordController extends Controller
 
     public function showResetForm($token)
     {
-        return view('passwod.reset', ['token' => $token]);
+        $tokenData = DB::table('password_resets')->where('token', $token)->first();
+
+        if (!$tokenData) {
+            return back()->withErrors(['token' => 'El token de restablecimiento de contraseña no es válido']);
+        }
+
+        return view('password.reset', ['token' => $token, 'email' => $tokenData->email]);
     }
+    public function reset(Request $request)
+    {
 
-        public function reset(Request $request)
-{
-    $request->validate([
-        'token' => 'required',
-        'email' => 'required|email',
-        'password' => 'required|confirmed|min:8',
-    ]);
+            $request->validate([
+                'token' => 'required',
+                'email' => 'required|email',
+                'password' => 'required|confirmed|min:8',
+            ]);
 
-    $user = User::where('email', $request->email)->first();
+            $user = User::where('email', $request->email)->first();
 
-    if (!$user) {
-        return back()->withErrors(['email' => 'No podemos encontrar un usuario con esa dirección de correo electrónico']);
-    }
+            if (!$user) {
+                return back()->withErrors(['email' => 'No podemos encontrar un usuario con esa dirección de correo electrónico']);
+            }
 
-    $tokenData = DB::table('password_resets')->where('email', $request->email)->where('token', $request->token)->first();
+            $tokenData = DB::table('password_resets')->where('email', $request->email)->where('token', $request->token)->first();
 
-    if (!$tokenData) {
-        return back()->withErrors(['token' => 'El token de restablecimiento de contraseña no es válido']);
-    }
+            if (!$tokenData) {
+                return back()->withErrors(['token' => 'El token de restablecimiento de contraseña no es válido']);
+            }
 
-    $user->password = Hash::make($request->password);
-    $user->save();
+            $user->password = Hash::make($request->password);
+            $user->save();
 
-    DB::table('password_resets')->where('email', $request->email)->delete();
+            DB::table('password_resets')->where('email', $request->email)->delete();
 
-    return redirect('/')->with('status', 'Tu contraseña ha sido restablecida correctamente');
-}
+            return redirect('/')->with('status', 'Tu contraseña ha sido restablecida correctamente');
+        }
+
+        // ...
+
+    // ...
+
 
 }

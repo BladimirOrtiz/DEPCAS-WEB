@@ -38,7 +38,7 @@
 <form action="" method="post" class="m-auto bg-white p-5 rounded-sm shadow-lg w-form ">
     @csrf
             <h2 class="text-center">REGISTRO DE DATOS MÉDICOS</h2>
-          <<div class="form-group"> <!-- Diagnóstico Médico -->
+          <div class="form-group"> <!-- Diagnóstico Médico -->
             <label for="exampleInputName" class="control-label">Diagnóstico Médico</label>
             <input type="text" class="form-control" id="medicaldiagnosis" name="medicaldiagnosis" placeholder="Diagnóstico Médico" value="{{ old('medicaldiagnosis') }}">
             @error('medicaldata')

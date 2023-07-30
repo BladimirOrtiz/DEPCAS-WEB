@@ -43,17 +43,13 @@
          }
 
          </style>
+
 <div>
-<img src="img/diflogo.jpg" class="rounded float-start custom-image" style="width: 100px; height: 100px;">
-</div>
-<div>
-<img src="img/logo.png" class="rounded float-end custom-image" style="width: 100px; height: 100px;">
+<img src="img/logo.png" class="rounded mx-auto d-block" style="width: 100px; height: 100px;">
 </div>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
+
     <p class="text-end">Santa Cruz Xoxocotlán Oaxaca, Oax</p>
     <p class="text-end"><strong>Tipo de Solicitud:</strong>  {{ $selectedRequest->request_type }}</p>
     <p class="text-end"><strong>Folio de Solicitud:</strong>  {{ $selectedRequest->requestfolio }}</p>
@@ -61,9 +57,7 @@
     <p class="text-start"> <strong>P R E S E N T E:</strong></p>
     <section>
         <p style="text-indent: 40px; text-align: justify;">
-            Por este medio el
-            <strong>Área de Personas con discapacidad del Sistema DIF del Municipio de Santa Cruz Xoxocotlán Oaxaca</strong>, solicita de la manera más atenta recibir en sus instalaciones al
-            <strong>C. {{ $userDetails->personalname }} {{ $userDetails->paternallastname }} {{ $userDetails->maternalastname }}</strong> porque una vez revisada y analizada su situación consideramos que puede desarrollar y/o fortalecer sus capacidades y competencias ahí con ustedes. Anexamos a la presente los siguientes datos:
+            El que suscribe <strong>C. {{ $userDetails->personalname }} {{ $userDetails->paternallastname }} {{ $userDetails->maternalastname }}</strong> Sollicito de la manera mas cordial me puedan apoyar con;<strong> {{ $selectedRequest->request_description }}</strong> proporciono los siguientes datos para una mejor valoracion de la peticion.
         </p>
 
     </section>
@@ -177,8 +171,10 @@
         </div>
         </section>
 <section>
-    <p class="text-start" style="text-indent: 20px;">Sin nada más que agregar y esperando con su apoyo nos despedimos enviándoles un cordial Saludo.</p>
- </section>
+    <p class="text-start" style="text-indent: 20px;">Sin nada más que agregar y esperando con su apoyo se despide ne despido de ustedes  enviándoles un cordial Saludo.</p>
+
+
+</section>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

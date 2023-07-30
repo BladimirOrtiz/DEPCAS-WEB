@@ -37,7 +37,7 @@
     <form action="" method="post" class="m-auto bg-white p-5 rounded-sm shadow-lg w-form ">
         @csrf
             <h2 class="text-center">REGISTRO DE DATOS DOMICILIO</h2>
-            <<div class="form-group"> <!-- Postal Code -->
+            <div class="form-group"> <!-- Postal Code -->
                 <label for="full_name_id" class="control-label">Código Postal</label>
                 <input type="text" class="form-control" id="postalcode" name="postalcode" placeholder="Código Postal" value="{{ old('postalcode') }}">
                 @error('postalcode')

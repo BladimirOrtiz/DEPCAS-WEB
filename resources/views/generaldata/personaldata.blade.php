@@ -42,7 +42,7 @@
             <h2 class="text-center">REGISTRO DE DATOS PERSONALES</h2>
             <div class="form-group"> <!-- Personal Name -->
                 <label for="exampleInputName" class="control-label">Nombre Personal</label>
-                <input type="text" class="form-control" id="personalname" name="personalname" placeholder="Nombre Personal" value="{{ old('personalname') }}">
+                <input type="text" class="form-control capitalize" id="personalname" name="personalname" placeholder="Nombre Personal" value="{{ old('personalname') }}" oninput="capitalizeInput(this)">
                 @error('personalname')
                 <small class="txt-danger mt-1">
                     <strong>{{ $message }}</strong>
@@ -51,7 +51,7 @@
             </div>
             <div class="form-group"> <!-- Paternal lastname -->
                 <label for="full_name_id" class="control-label">Apellido Paterno</label>
-                <input type="text" class="form-control" id="paternallastname" name="paternallastname" placeholder="Apellido Paterno" value="{{ old('paternallastname') }}">
+                <input type="text" class="form-control capitalize" id="paternallastname" name="paternallastname" placeholder="Apellido Paterno" value="{{ old('paternallastname') }}" oninput="capitalizeInput(this)">
                 @error('paternallastname')
                 <small class="txt-danger mt-1">
                     <strong>{{ $message }}</strong>
@@ -60,7 +60,7 @@
             </div>
             <div class="form-group"> <!-- Maternal lastname -->
                 <label for="full_name_id" class="control-label">Apellido Materno</label>
-                <input type="text" class="form-control" id="maternalastname" name="maternalastname" placeholder="Apellido Materno" value="{{ old('maternalastname') }}">
+                <input type="text" class="form-control capitalize" id="maternalastname" name="maternalastname" placeholder="Apellido Materno" value="{{ old('maternalastname') }}" oninput="capitalizeInput(this)">
                 @error('maternalastname')
                 <small class="txt-danger mt-1">
                     <strong>{{ $message }}</strong>
@@ -122,6 +122,13 @@
         <div id="btnrg">
             <button type="submit" class="btn btn-primary btn-lg">Siguiente</button>
           </div>
+          <script>
+            function capitalizeInput(input) {
+                const value = input.value;
+                input.value = value.charAt(0).toUpperCase() + value.slice(1);
+            }
+        </script>
+
 
         </form>
     </div>

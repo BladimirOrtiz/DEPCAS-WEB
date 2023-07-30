@@ -27,9 +27,8 @@ Route::get('/sesion', [App\Http\Controllers\Auth\LoginController::class,'view'])
 Route::post('/sesion', [App\Http\Controllers\Auth\LoginController::class,'signup']);
 Route::get('/recuperarcont', [App\Http\Controllers\PasswordResetController::class,'show']);
 Route::post('/recuperarcont', [App\Http\Controllers\PasswordResetController::class,'sendResetLinkEmail']);
-Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
-
-
+Route::get('/reset-password/{token}', [App\Http\Controllers\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('/reset-password', [App\Http\Controllers\ResetPasswordController::class, 'reset'])->name('password.update');
 Route::prefix('facebook')->name('facebook')->group( function(){
     Route::get('/facebook', [App\Http\Controllers\account\FaceBookController::class,'loginUsingFacebook']);
     Route::get('/facebook/callback',  [App\Http\Controllers\account\FaceBookController::class,'callbackFromFacebook']);
@@ -69,6 +68,9 @@ Route::post('/welcomepanel/banneraddress', [App\Http\Controllers\banner\BannerAd
 // banner Medicaldata
 Route::get('/welcomepanel/bannermedical', [App\Http\Controllers\banner\BannerMedicalDataController::class, 'index']);
 Route::post('/welcomepanel/bannermedical', [App\Http\Controllers\banner\BannerMedicalDataController::class, 'update'])->name('updateMedicalData');
+// About
+Route::get('/about', [App\Http\Controllers\Home\AboutController::class, 'index'])->name('about');
+
 //request
 Route::get('/newrequest', [App\Http\Controllers\Request\NewRequestController::class, 'index']);
 Route::post('/newrequest', [App\Http\Controllers\Request\NewRequestController::class, 'sendRequest']);
