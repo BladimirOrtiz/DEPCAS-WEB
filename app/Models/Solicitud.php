@@ -33,10 +33,20 @@ class Solicitud extends Model
     {
         return $this->belongsTo(User::class, 'fk_userr');
     }
+    public function institution()
+    {
+        return $this->belongsTo(Institution::class, 'fk_institutions');
+    }
+
     public static function getRequestByIdAndUser($idrequest, $fk_userr)
     {
         return self::where('idrequest', $idrequest)
             ->where('fk_userr', $fk_userr)
             ->first();
     }
+    public static function getRequestByRequestfolio($requestfolio)
+{
+    return static::where('requestfolio', $requestfolio)->first();
+}
+
 }

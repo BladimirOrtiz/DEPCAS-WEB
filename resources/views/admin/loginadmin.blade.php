@@ -15,13 +15,13 @@
      <div class= "container d-flex">
      <form action="" method="post" class="m-auto bg-white p-5 rounded-sm shadow-lg w-form ">
         @csrf
-                <h2 class="text-center">Iniciar Sesión</h2>
+                <h2 class="text-center"> Sesión Admistrador</h2>
                 <div class="text-center">
                     <img src="img/logo.png" class="rounded" id="logo" alt="">
                 </div>
               <div class="form-group"> <!-- User Name -->
                 <label for="exampleInputName" class="control-label">Nombre de Usuario</label>
-                <input type="text" class="form-control" id="user_name" name="username" placeholder="Usuario/Email">
+                <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Nombre de Usuario">
                 @error('user_name')
                 <small class="txt-danger mt-1">
                  <strong>{{ $message }}</strong>
@@ -39,10 +39,7 @@
                 @enderror
             </div>
 
-            <br>
 
-            <a href="/recuperarcont" class="text-body" style="float:right;">¿Olvidaste tu contraseña?</a>
-            <br>
             <br>
             <div id="btnrg">
                 <button type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>

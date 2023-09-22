@@ -136,20 +136,11 @@
                                 <td>{{ $solicitud->created_date }}</td>
                                 <td>{{ $solicitud->creation_time }}</td>
                                 <td>
-                                    <!-- Botones de Acción -->
-                                    <a href="{{ route('request.updaterequest', ['idrequest' => $solicitud->idrequest, 'fk_userr' => $solicitud->fk_userr]) }}" class="btn btn-primary" title="Editar"><img src="img/iconos/update.png" alt="Imagen" width="50" height="50">
-                                    </a>
-                                    <form action="{{ route('request.deleterequest', [$solicitud->idrequest, $solicitud->fk_userr]) }}" method="POST" style="display: inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" title="Eliminar"><img src="img/iconos/drop.png" alt="Imagen" width="50" height="50"></button>
-                                    </form>
+
                                        <a href="{{ route('generate.pdf', ['idrequest' => $solicitud->idrequest]) }}" class="btn btn-secondary" target="_blank" title="Generar PDF">
                                         <img src="img/iconos/pdf.png" alt="Imagen" width="50" height="50">
                                     <a>
-                                        <a href="{{ route('send.email', ['idrequest' => $solicitud->idrequest]) }}" class="btn btn-dark" target="_blank" title="Envío vía Email">
-                                            <img src="img/iconos/sendemail.png" alt="Imagen" width="50" height="50">
-                                        </a>
+
                                 </td>
                             </tr>
                         @endforeach

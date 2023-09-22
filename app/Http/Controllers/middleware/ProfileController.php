@@ -17,16 +17,15 @@ class ProfileController extends Controller
             'profile_photo' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-
         if ($request->hasFile('profile_photo')) {
             $user = Auth::user();
             $oldPhotoPath = $user->profile_photo_path;
 
             $photo = $request->file('profile_photo');
-            $photoPath = $photo->store('profile_photo', 'public');
+            $photoPath = $photo->store('public/profile_photo'); // Almacenar en public/profile_photo
+            $photoPath = str_replace('public/', '', $photoPath); // Quitar 'public/' del path
             $user->profile_photo_path = $photoPath;
             $user->save();
-
 
             if ($oldPhotoPath) {
                 Storage::disk('public')->delete($oldPhotoPath);
@@ -35,6 +34,7 @@ class ProfileController extends Controller
 
         return redirect('/generaldata')->with('success', 'Foto de perfil actualizada correctamente.');
     }
+
 
     }
 

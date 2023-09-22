@@ -29,14 +29,7 @@ Route::get('/recuperarcont', [App\Http\Controllers\PasswordResetController::clas
 Route::post('/recuperarcont', [App\Http\Controllers\PasswordResetController::class,'sendResetLinkEmail']);
 Route::get('/reset-password/{token}', [App\Http\Controllers\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('/reset-password', [App\Http\Controllers\ResetPasswordController::class, 'reset'])->name('password.update');
-Route::prefix('facebook')->name('facebook')->group( function(){
-    Route::get('/facebook', [App\Http\Controllers\account\FaceBookController::class,'loginUsingFacebook']);
-    Route::get('/facebook/callback',  [App\Http\Controllers\account\FaceBookController::class,'callbackFromFacebook']);
-    });
-    Route::prefix('google')->name('google')->group( function(){
-        Route::get('//login/google', [App\Http\Controllers\account\GoogleController::class,'redirectToGoogle']);
-        Route::get('/login/google/callback',  [App\Http\Controllers\account\GoogleController::class,'callbackFromGoogle']);
-        });
+
 
 //routes protected
 
@@ -74,12 +67,28 @@ Route::get('/about', [App\Http\Controllers\Home\AboutController::class, 'index']
 //request
 Route::get('/newrequest', [App\Http\Controllers\Request\NewRequestController::class, 'index']);
 Route::post('/newrequest', [App\Http\Controllers\Request\NewRequestController::class, 'sendRequest']);
+
 //readrequest
 Route::get('/readsolicicitud', [App\Http\Controllers\Request\ReadRequestController::class, 'index'])->name('readrequest');
 
-Route::get('/solicitud/{idrequest}/{fk_userr}', 'App\Http\Controllers\Request\ReadRequestController@showUpdate')->name('request.updaterequest');
-Route::post('/solicitud/{idrequest}/{fk_userr}', 'App\Http\Controllers\Request\ReadRequestController@updaterequest')->name('request.updaterequest');
-Route::delete('/request.deleterequest/{idrequest}/{fk_userr}', 'App\Http\Controllers\Request\ReadRequestController@deleteRequest')->name('request.deleterequest');
 //PDF
 Route::get('/generate-pdf/{idrequest}', [App\Http\Controllers\PDF\PDFController::class, 'generatePDF'])->name('generate.pdf');
 Route::get('/generate-and-send-pdf/{idrequest}', [App\Http\Controllers\PDF\PDFController::class, 'sendpdf'])->name('send.email');
+
+//login admin
+Route::get('/loginadmin', [App\Http\Controllers\Admin\LoginAdminController::class, 'index']);
+Route::post('/loginadmin', [App\Http\Controllers\Admin\LoginAdminController::class, 'signupadmin']);
+Route::get('/registeradmin', [App\Http\Controllers\Admin\AdminRegisterController::class, 'index']);
+Route::post('/registeradmin', [App\Http\Controllers\Admin\AdminRegisterController::class, 'registeradmin']);
+Route::get('/logoutadmin', [App\Http\Controllers\Admin\LogoutController::class,'logout']);
+
+//admin dashboard
+Route::get('/admin/dashboard', [App\Http\Controllers\Admin\Home\DashboardAdminController::class, 'index']);
+Route::get('/admin/userrequest', [App\Http\Controllers\Admin\Home\UserRequestController::class, 'index'])->name('admin.userrequest');
+
+// request funtion admin
+Route::get('/solicitud/{requestfolio}', 'App\Http\Controllers\Admin\Home\UpdateUserRequestController@showUpdate')->name('request.updaterequest');
+Route::post('/solicitud/{requestfolio}', 'App\Http\Controllers\Admin\Home\UpdateUserRequestController@updaterequest')->name('request.updaterequest');
+Route::delete('/solicitud/{requestfolio}', 'App\Http\Controllers\Admin\Home\UpdateUserRequestController@deleteRequest')->name('request.deleterequest');
+
+//PDF Admin

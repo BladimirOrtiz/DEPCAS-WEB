@@ -40,7 +40,13 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'admin' => [ // Nuevo guard "admin"
+            'driver' => 'session', // Puedes configurar el driver que necesites
+            'provider' => 'admins', // Nombre del proveedor correspondiente
+        ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -65,10 +71,10 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admins' => [ // Nuevo proveedor "admins"
+            'driver' => 'eloquent', // El driver correspondiente a tu modelo de administrador
+            'model' => App\Models\Admin::class, // El modelo de administrador que estás utilizando
+        ],
     ],
 
     /*
