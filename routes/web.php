@@ -71,9 +71,6 @@ Route::post('/newrequest', [App\Http\Controllers\Request\NewRequestController::c
 //readrequest
 Route::get('/readsolicicitud', [App\Http\Controllers\Request\ReadRequestController::class, 'index'])->name('readrequest');
 
-//PDF
-Route::get('/generate-pdf/{idrequest}', [App\Http\Controllers\PDF\PDFController::class, 'generatePDF'])->name('generate.pdf');
-Route::get('/generate-and-send-pdf/{idrequest}', [App\Http\Controllers\PDF\PDFController::class, 'sendpdf'])->name('send.email');
 
 //login admin
 Route::get('/loginadmin', [App\Http\Controllers\Admin\LoginAdminController::class, 'index']);
@@ -92,3 +89,8 @@ Route::post('/solicitud/{requestfolio}', 'App\Http\Controllers\Admin\Home\Update
 Route::delete('/solicitud/{requestfolio}', 'App\Http\Controllers\Admin\Home\UpdateUserRequestController@deleteRequest')->name('request.deleterequest');
 
 //PDF Admin
+Route::get('/generate-pdf/{idrequest}', [App\Http\Controllers\Admin\PDF\PDFAdminRequestController::class, 'generatePDFAdmin'])->name('generate.pdf.admin');
+Route::get('/generate-and-send-pdf/{idrequest}', [App\Http\Controllers\Admin\PDF\PDFAdminRequestController::class, 'sendpdfadmin'])->name('send.email.admin');
+// institution
+Route::get('/institutionrequest', [App\Http\Controllers\Admin\Home\InstitutionController::class, 'index']);
+Route::post('/institutionrequest', [App\Http\Controllers\Admin\Home\InstitutionController::class, 'registerinstitution']);

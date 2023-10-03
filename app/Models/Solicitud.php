@@ -35,7 +35,7 @@ class Solicitud extends Model
     }
     public function institution()
     {
-        return $this->belongsTo(Institution::class, 'fk_institutions');
+        return $this->belongsTo(Institution::class, 'fk_institutions', 'id_institution');
     }
 
     public static function getRequestByIdAndUser($idrequest, $fk_userr)

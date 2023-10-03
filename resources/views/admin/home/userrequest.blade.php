@@ -70,9 +70,13 @@
                       <img src="https://cdn-icons-png.flaticon.com/512/7257/7257795.png" alt="Imagen" width="50" height="50">
                        Estadisticas
                       </a>
-
                   </li>
-
+                  <li class="nav-item">
+                    <a class="nav-link"  onclick="toggleCollapse('solicitudes')" href="/institutionrequest">
+                      <img src="https://www.pngall.com/wp-content/uploads/8/Institution-Transparent.png" alt="Imagen" width="50" height="50">
+                       Instituciones
+                      </a>
+                  </li>
 
               </ul>
             </div>
@@ -130,10 +134,11 @@
                         </button>
                     </form>
 
-                    <a href="{{ route('generate.pdf', ['idrequest' => $solicitud->idrequest]) }}" class="btn btn-secondary" target="_blank" title="Generar PDF">
-                    <img src="https://cdn-icons-png.flaticon.com/256/337/337946.png" alt="Imagen" width="50" height="50">
-                    <a>
-                    <a href="{{ route('send.email', ['idrequest' => $solicitud->idrequest]) }}" class="btn btn-dark" target="_blank" title="Envío vía Email">
+                    <a href="{{ route('generate.pdf.admin', ['idrequest' => $solicitud->idrequest]) }}" class="btn btn-secondary" target="_blank" title="Generar PDF">
+                        <img src="https://cdn-icons-png.flaticon.com/256/337/337946.png" alt="Imagen" width="50" height="50">
+                    </a>
+
+                    <a href="{{ route('send.email.admin', ['idrequest' => $solicitud->idrequest]) }}" class="btn btn-dark" target="_blank" title="Envío vía Email">
                     <img src="https://cdn-icons-png.flaticon.com/512/2343/2343686.png" alt="Imagen" width="50" height="50">
                     </a>
 

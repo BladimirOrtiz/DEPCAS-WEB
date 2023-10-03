@@ -11,7 +11,7 @@ class Institution extends Model
     use HasApiTokens, HasFactory, Notifiable;
     public $timestamps = false;
     protected $table = 'institution';
-    protected $primaryKey = 'id_institution ';
+    protected $primaryKey = 'id_institution  ';
     /**
          * The attributes that are mass assignable.
          *

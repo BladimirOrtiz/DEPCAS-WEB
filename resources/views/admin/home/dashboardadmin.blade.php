@@ -68,10 +68,13 @@
                       <img src="https://cdn-icons-png.flaticon.com/512/7257/7257795.png" alt="Imagen" width="50" height="50">
                        Estadisticas
                       </a>
-
                   </li>
-
-
+                  <li class="nav-item">
+                    <a class="nav-link"  onclick="toggleCollapse('solicitudes')" href="/institutionrequest">
+                      <img src="https://www.pngall.com/wp-content/uploads/8/Institution-Transparent.png" alt="Imagen" width="50" height="50">
+                       Instituciones
+                      </a>
+                  </li>
               </ul>
             </div>
           </div>

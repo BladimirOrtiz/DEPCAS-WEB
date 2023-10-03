@@ -15,7 +15,5 @@ class AdminRegisterController extends Controller
     public function registeradmin(RegisterAdminRequest $request){
         $user = Admin::create($request->validated());
         return redirect('/loginadmin')->with('success', 'USUARIO REGISTRADO CORRECTAMENTE');
-
-
        }
 }
