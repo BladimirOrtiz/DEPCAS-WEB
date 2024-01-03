@@ -94,3 +94,7 @@ Route::get('/generate-and-send-pdf/{idrequest}', [App\Http\Controllers\Admin\PDF
 // institution
 Route::get('/institutionrequest', [App\Http\Controllers\Admin\Home\InstitutionController::class, 'index']);
 Route::post('/institutionrequest', [App\Http\Controllers\Admin\Home\InstitutionController::class, 'registerinstitution']);
+//Institution List
+Route::get('/institutionrlist', [App\Http\Controllers\Admin\Home\InstitutionListController::class, 'index']);
+//Graphics
+Route::get('/graphicsrequest', [App\Http\Controllers\Admin\Home\GraphicsRequestController::class, 'index']);

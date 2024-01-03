@@ -29,7 +29,7 @@ class InstitutionController extends Controller
         $institution->save();
 
         // Redirige de vuelta a la vista de registro con un mensaje de éxito
-        return redirect('/admin/dashboard')->with('success', 'Institución registrada correctamente');
+        return redirect('institutionrlist')->with('success', 'Institución registrada correctamente');
     }
 
 

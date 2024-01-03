@@ -114,7 +114,10 @@
                             <label for="request_type" class="form-label"><strong>Tipo de Solicitud</strong></label>
                             <select class="form-select" name="request_type" id="request_type">
                                 <option value="">Seleccione el tipo de solicitud</option>
+                                <option value="Solicitud de Afiliación Cultural">Solicitud de Afiliación Cultural</option>
                                 <option value="Solicitud de Afiliación Deportiva">Solicitud de Afiliación Deportiva</option>
+                                <option value="Solicitud de Afiliación Educativa">Solicitud de Afiliación Educativa</option>
+                                <option value="Solicitud de Afiliación Laboral">Solicitud de Afiliación Laboral</option>
                                 <option value="Apoyo Municipal">Apoyo Municipal </option>
 
                                 <!-- Agrega más opciones según tus necesidades -->

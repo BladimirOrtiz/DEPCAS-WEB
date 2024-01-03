@@ -22,7 +22,7 @@
       <!--BARRA DE NAVEGACION -->
 
     <ul id="mn" class="nav nav-pills">
-      <a class="navbar-brand" href="/welcomepanel"
+      <a class="navbar-brand" href="/admin/dashboard"
           ><img src="https://i.pinimg.com/564x/a6/65/26/a6652603c3ac7b1c2392274913efb673.jpg" class="logo" alt="DEPCASWEB"></a>
 
 
@@ -57,27 +57,25 @@
                     </div>
                   </li>
 
-
                   <li class="nav-item">
-                    <a class="nav-link"  onclick="toggleCollapse('solicitudes')">
-                      <img src="https://cdn-icons-png.flaticon.com/512/7257/7257795.png" alt="Imagen" width="50" height="50">
-                       Respuestas
-                      </a>
-
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link"  onclick="toggleCollapse('solicitudes')">
-                      <img src="https://cdn-icons-png.flaticon.com/512/7257/7257795.png" alt="Imagen" width="50" height="50">
+                    <a class="nav-link"  onclick="toggleCollapse('solicitudes')" href="/graphicsrequest">
+                      <img src="https://cdn-icons-png.flaticon.com/512/44/44852.png" alt="Imagen" width="50" height="50">
                        Estadisticas
                       </a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link"  onclick="toggleCollapse('solicitudes')" href="/institutionrequest">
                       <img src="https://www.pngall.com/wp-content/uploads/8/Institution-Transparent.png" alt="Imagen" width="50" height="50">
-                       Instituciones
+                      Registrar Instituciones
                       </a>
                   </li>
-
+                  <li class="nav-item">
+                    <a class="nav-link"  onclick="toggleCollapse('solicitudes')" href="/institutionrlist">
+                      <img src="https://www.pngall.com/wp-content/uploads/8/Institution-Transparent.png" alt="Imagen" width="50" height="50">
+                       Lista de Instituciones
+                      </a>
+                  </li>
+              </ul>
               </ul>
             </div>
           </div>

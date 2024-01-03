@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Panel Del Administrador</title>
+    <title>Lista de Instituciones</title>
     <link rel="shortcut icon" type="image/x-icon" href="https://i.pinimg.com/564x/a6/65/26/a6652603c3ac7b1c2392274913efb673.jpg">
     <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
     <link rel="stylesheet" href="{{ asset('css/panel.css') }}">
      <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+     <link rel="stylesheet" href="{{ asset('css/readrequest.css') }}">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -23,6 +24,8 @@
     <ul id="mn" class="nav nav-pills">
       <a class="navbar-brand" href="/admin/dashboard"
           ><img src="https://i.pinimg.com/564x/a6/65/26/a6652603c3ac7b1c2392274913efb673.jpg" class="logo" alt="DEPCASWEB"></a>
+
+
           <ul id="menu">
             <li><a href="">Administrador</a>
                 <ul>
@@ -33,7 +36,6 @@
                 </ul>
             </li>
         </ul>
-
         </nav>
     <br>
     <div class="container-fluid">
@@ -42,7 +44,7 @@
             <div class="sidebar">
               <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link"  onclick="toggleCollapse('datosGenerales')" href="/admin/userrequest">
+                    <a class="nav-link"  onclick="toggleCollapse('datosGenerales')">
                       <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Imagen" width="50" height="50">
                      Solicitudes
                     </a>
@@ -55,7 +57,6 @@
                     </div>
                   </li>
 
-
                   <li class="nav-item">
                     <a class="nav-link"  onclick="toggleCollapse('solicitudes')" href="/graphicsrequest">
                       <img src="https://cdn-icons-png.flaticon.com/512/44/44852.png" alt="Imagen" width="50" height="50">
@@ -65,7 +66,7 @@
                   <li class="nav-item">
                     <a class="nav-link"  onclick="toggleCollapse('solicitudes')" href="/institutionrequest">
                       <img src="https://www.pngall.com/wp-content/uploads/8/Institution-Transparent.png" alt="Imagen" width="50" height="50">
-                      Registrar Instituciones
+                       Registrar Instituciones
                       </a>
                   </li>
                   <li class="nav-item">
@@ -78,48 +79,51 @@
             </div>
           </div>
           <div class="col-md-9 p-3 min-vh-100">
-            <!-- Contenido principal aquí -->
-            <div class="welcome-message">
-                ¡Hola, Administrador!
-              </div>
-              <div class="hand-emoji">
-                👋
-              </div>
-                <br>
-                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                    <ol class="carousel-indicators">
-                      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-                      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-                      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
-                      <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <a href="#">
-                          <img src="https://incluyendome.com/wp-content/uploads/Parques-incluyentes-en-M%C3%A9xico.jpg" class="d-block w-100" alt="Imagen 2">
-                      </div>
-                      <div class="carousel-item">
-                        <a href="#">
-                          <img src="https://www.accesos.mx/wp-content/uploads/2018/12/dia-mundial-de-la-discapacidad.jpg" class="d-block w-100" alt="Imagen 2">
-                        </a>
-                      </div>
-                      <div class="carousel-item">
-                        <a href="https://www.voaxaca.tecnm.mx/">
-                          <img src="https://www.somosiberoamerica.org/wp-content/uploads/2019/09/FOTO-ARTICULO-PRINCIPAL-3-1080x675.jpg" class="d-block w-100" alt="Imagen 3">
-                        </a>
-                      </div>
+<!-- Contenido principal aquí -->
+<div class="card-header text-center align-items-center">
+    <h5 class="card-title mb-0">Lista de Instituciones</h5>
+</div>
+<div class="table-responsive">
+    <table class="table custom-table">
+        <thead>
+            <tr>
+            <th>Nombre de la Institución</th>
+                <th>Tipo de Institución</th>
+                <th>Ubicación de la Institución</th>
+                <th>Días de Atención</th>
+                <th>Hora de Apertura</th>
+                <th>Hora de Cierre</th>
+                <th>Email de la Institución </th>
+                <th>Teléfono de la Institución </th>
+                <th>Área Responsable</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($instituciones  as $institucion)
+                <tr>
+                    <td>{{ $institucion->institution_name }}</td>
+                    <td>{{ $institucion->institution_type }}</td>
+                    <td>{{ $institucion->institution_location }}</td>
+                    <td>{{ $institucion->attention_days }}</td>
+                    <td>{{ $institucion->opening_time }}</td>
+                    <td>{{ $institucion->closing_time }}</td>
+                    <td>{{ $institucion->institution_email }}</td>
+                    <td>{{ $institucion->institution_phonenumber }}</td>
+                    <td>{{ $institucion->area_responsible }}</td>
 
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </a>
-                  </div>
-            </div>
+                    <td>
+                    <!-- Botones de Acción -->
+
+
+
+
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
           </div>
         </div>
         </div>
